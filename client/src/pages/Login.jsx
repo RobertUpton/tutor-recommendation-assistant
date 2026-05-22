@@ -1,7 +1,9 @@
 function Login() {
   return (
     <div>
-      <h1>Login Page</h1>
+       <h1 style={{color: "white" }}> 
+        Login Page
+      </h1>
     </div>
   );
 }
