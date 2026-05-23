@@ -50,6 +50,7 @@ function Navbar() {
               borderBottom: "2px solid #3b82f6",
               paddingBottom: "4px",
               fontWeight: "500",
+              
             }}
           >
             Home
@@ -58,29 +59,17 @@ function Navbar() {
           <Link
             to="/login"
             style={{
-              color: "white",
+              color: "#60a5fa",
               textDecoration: "none",
-              padding: "8px 18px",
-              border: "1px solid #4b5563",
-              borderRadius: "10px",
+              borderBottom: "2px solid #3b82f6",
+              paddingBottom: "4px",
+              fontWeight: "500",
             }}
           >
             Login
           </Link>
 
-          <Link
-            to="/register"
-            style={{
-              color: "white",
-              textDecoration: "none",
-              padding: "8px 18px",
-              backgroundColor: "#2563eb",
-              borderRadius: "10px",
-              fontWeight: "500",
-            }}
-          >
-            Register
-          </Link>
+        
         </div>
       </nav>
     </div>
