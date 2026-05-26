@@ -18,7 +18,7 @@ function Navbar() {
 
 
         {/* Links */}
-        <div style={{ndisplay: "flex", alignItems: "center", gap: "15px",  }} >
+        <div style={{display: "flex", alignItems: "center", gap: "25px",  }} >
           <Link to="/" 
             style={{  color: "#60a5fa",  textDecoration: "none",  borderBottom: "2px solid #3b82f6",
               paddingBottom: "4px", fontWeight: "500",}} >

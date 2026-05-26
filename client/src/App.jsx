@@ -2,9 +2,10 @@ import { BrowserRouter, Routes, Route, useLocation, } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
+import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Tutors from "./pages/Tutors";
 
 // This component handles routes + navbar logic
 function AppContent() {
@@ -15,14 +16,21 @@ function AppContent() {
   return (
     <>
 
-      {/* Hide navbar on dashboard */}
-      {location.pathname !== "/dashboard" && <Navbar />}
+     {/* Hide Navbar on dashboard pages */}
+      
+      {location.pathname === "/"  && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/Tutors" element={<Tutors />} />
+          {/**
+          <Route path="/messages" element={<Messages/>} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/settings " element={<Settings/>} />
+        */}
       </Routes>
 
     </>

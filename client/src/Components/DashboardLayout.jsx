@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function DashboardLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -73,37 +74,49 @@ function DashboardLayout({ children }) {
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
 
             
-            <p style={{ backgroundColor: "#07173a", padding: "14px",
-            borderRadius: "14px", fontWeight: "500", margin: 0, cursor: "pointer" }}>
+            <Link 
+            to="/Dashboard"
+            style={{ backgroundColor: "#07173a", padding: "14px",
+            borderRadius: "14px", fontWeight: "500", margin: 0, cursor: "pointer", textDecoration: "none" }}>
               {sidebarOpen && "Dashboard"}
-            </p>
+            </Link>
 
-            {/* Other Links */}
-            <p style={{ padding: "14px", borderRadius: "14px", margin: 0,
-            cursor: "pointer", color: "#cbd5e1" }}>
+            
+            <Link
+            to="/Tutors"
+             style={{ padding: "14px", borderRadius: "14px", margin: 0,
+            cursor: "pointer", color: "#cbd5e1" , textDecoration: "none"}}>
               {sidebarOpen && "Browse Tutors"}
               
-            </p>
+            </Link>
 
-            <p style={{ padding: "14px", borderRadius: "14px", margin: 0,
-            cursor: "pointer", color: "#cbd5e1" }}>
+            <Link
+            to="/my Booking"
+             style={{ padding: "14px", borderRadius: "14px", margin: 0,
+            cursor: "pointer", color: "#cbd5e1" , textDecoration: "none"}}>
               {sidebarOpen && " My Bookings"}
-            </p>
+            </Link>
 
-            <p style={{ padding: "14px", borderRadius: "14px", margin: 0,
-            cursor: "pointer", color: "#cbd5e1" }}>
+            <Link 
+            to="/Messages"
+            style={{ padding: "14px", borderRadius: "14px", margin: 0,
+            cursor: "pointer", color: "#cbd5e1", textDecoration: "none"}}>
               {sidebarOpen && "Messages"}
-            </p>
+            </Link>
 
-            <p style={{ padding: "14px", borderRadius: "14px", margin: 0,
-            cursor: "pointer", color: "#cbd5e1" }}>
+            <Link 
+            to="/profile"
+            style={{ padding: "14px", borderRadius: "14px", margin: 0,
+            cursor: "pointer", color: "#cbd5e1", textDecoration: "none" }}>
               {sidebarOpen && "Profile"}
-            </p>
+            </Link>
 
-            <p style={{ padding: "14px", borderRadius: "14px", margin: 0,
-            cursor: "pointer", color: "#cbd5e1" }}>
+            <Link 
+            to="/Settings"
+            style={{ padding: "14px", borderRadius: "14px", margin: 0,
+            cursor: "pointer", color: "#cbd5e1", textDecoration: "none" }}>
               {sidebarOpen && "Settings"}
-            </p>
+            </Link>
 
           </div>
 
