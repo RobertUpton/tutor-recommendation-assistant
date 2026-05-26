@@ -1,92 +1,94 @@
+import DashboardLayout from "../components/DashboardLayout";
+
 function Dashboard() {
   return (
 
-    // Main dashboard container
-    <div
-      style={{display: "flex", height: "100vh", backgroundColor: "#020f2b", }}>
+    <DashboardLayout>
 
-      {/* Sidebar */}
-      <div
-        style={{ width: "250px", backgroundColor: "#03163d", padding: "20px", color: "white",}} >
-        <h2>TutorMatch AI</h2>
+      {/* Welcome Section */}
+      <div style={{ marginBottom: "30px" }}>
 
-        <div style={{ marginTop: "40px" }}>
-          <p>Dashboard</p>
-          <p>Browse Tutors</p>
-          <p>My Bookings</p>
-          <p>Messages</p>
-          <p>Settings</p>
+        <h1 style={{ margin: 0 }}>
+          Welcome back, User 
+        </h1>
 
-        </div>
-
-      </div>
-
-      {/* Top Header */}
-      <div style={{display: "flex",justifyContent: "space-between", alignItems: "center",marginBottom: "40px",}}>
-
-      </div>
-
-      {/* Right side */}
-      <div style={{ display: "flex",alignItems: "center",gap: "20px",}}>
-
-      </div>
-
-      {/* Main content area */}
-      <div
-        style={{ flex: 1, padding: "40px", color: "white", }}>
-        <h1>Welcome back </h1>
-
-        <p>
+        <p style={{ color: "#94a3b8" }}>
           Here's what's happening with your tutoring sessions.
         </p>
 
       </div>
 
 
-    {/* Notification icon */}
-    <div
-      style={{
-        color: "white",
-        fontSize: "22px",
-        cursor: "pointer",
-      }}
-    >
-      🔔
-    </div>
-    {/* Profile section */}
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "10px",
-      }}
-    ></div>
-      
- {/* Avatar */}
+      {/* Stats Cards */}
       <div
         style={{
-          width: "40px",
-          height: "40px",
-          borderRadius: "50%",
-          backgroundColor: "#2563eb",
           display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          color: "white",
-          fontWeight: "bold",
+          gap: "20px",
+          marginTop: "30px",
         }}
       >
-        R
+
+        {/* Card 1 */}
+        <div
+          style={{
+            backgroundColor: "#03163d",
+            padding: "20px",
+            borderRadius: "20px",
+            flex: 1,
+          }}
+        >
+          <p style={{ color: "#94a3b8" }}>
+            Upcoming Sessions
+          </p>
+
+          <h1 style={{ margin: 0 }}>
+            2
+          </h1>
+        </div>
+
+
+        {/* Card 2 */}
+        <div
+          style={{
+            backgroundColor: "#03163d",
+            padding: "20px",
+            borderRadius: "20px",
+            flex: 1,
+          }}
+        >
+          <p style={{ color: "#94a3b8" }}>
+            Saved Tutors
+          </p>
+
+          <h1 style={{ margin: 0 }}>
+            5
+          </h1>
+        </div>
+
+
+        {/* Card 3 */}
+        <div
+          style={{
+            backgroundColor: "#03163d",
+            padding: "20px",
+            borderRadius: "20px",
+            flex: 1,
+          }}
+        >
+          <p style={{ color: "#94a3b8" }}>
+            Completed Sessions
+          </p>
+
+          <h1 style={{ margin: 0 }}>
+            14
+          </h1>
+        </div>
+
       </div>
 
-       {/* Username */}
-      <p style={{ color: "white", margin: 0 }}>
-        R
-      </p>
+    </DashboardLayout>
 
-    </div>
   );
-
 }
 
 export default Dashboard;
