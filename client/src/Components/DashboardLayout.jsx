@@ -68,7 +68,7 @@ function DashboardLayout({ children }) {
 
         {/* Sidebar */}
         <div style={{  width: sidebarOpen ? "165px" : "0px", backgroundColor: "#03163d", padding: "25px",
-        borderRight: "1px solid #0f172a", borderRight: "1px solid #0f172a", }} > 
+        borderRight: "1px solid #0f172a", borderRight: "1px solid #0f172a", display: "flex", flexDirection: "column", }} > 
 
           {/* Sidebar Links */}
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -91,7 +91,7 @@ function DashboardLayout({ children }) {
             </Link>
 
             <Link
-            to="/my Booking"
+            to="/Bookings"
              style={{ padding: "14px", borderRadius: "14px", margin: 0,
             cursor: "pointer", color: "#cbd5e1" , textDecoration: "none"}}>
               {sidebarOpen && " My Bookings"}
@@ -105,7 +105,7 @@ function DashboardLayout({ children }) {
             </Link>
 
             <Link 
-            to="/profile"
+            to="/Profile"
             style={{ padding: "14px", borderRadius: "14px", margin: 0,
             cursor: "pointer", color: "#cbd5e1", textDecoration: "none" }}>
               {sidebarOpen && "Profile"}
@@ -119,6 +119,17 @@ function DashboardLayout({ children }) {
             </Link>
 
           </div>
+
+                  {/* Sign Out Button */}
+          <div style={{ marginTop: "auto" }}>
+
+            <button
+              style={{padding: "14px",backgroundColor: "#07173a",color: "#cbd5e1",
+                border: "none", borderRadius: "14px",cursor: "pointer",fontWeight: "bold",}} >
+              {sidebarOpen && "Sign Out"}
+            </button>
+
+        </div>
 
         </div>
 

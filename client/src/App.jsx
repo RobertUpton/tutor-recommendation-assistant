@@ -6,6 +6,11 @@ import Navbar from "./components/Navbar";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Tutors from "./pages/Tutors";
+import Messages from "./pages/Messages";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+import Bookings from "./pages/Bookings";
+
 
 // This component handles routes + navbar logic
 function AppContent() {
@@ -26,11 +31,10 @@ function AppContent() {
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
         <Route path="/Tutors" element={<Tutors />} />
-          {/**
-          <Route path="/messages" element={<Messages/>} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/settings " element={<Settings/>} />
-        */}
+        <Route path="/messages" element={<Messages />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/bookings" element={<Bookings />} />
       </Routes>
 
     </>
