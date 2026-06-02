@@ -1,7 +1,15 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function DashboardLayout({ children }) {
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
@@ -124,6 +132,7 @@ function DashboardLayout({ children }) {
           <div style={{ marginTop: "auto" }}>
 
             <button
+             onClick={handleLogout}
               style={{padding: "14px",backgroundColor: "#07173a",color: "#cbd5e1",
                 border: "none", borderRadius: "14px",cursor: "pointer",fontWeight: "bold",}} >
               {sidebarOpen && "Sign Out"}

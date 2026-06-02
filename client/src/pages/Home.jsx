@@ -18,11 +18,10 @@ function Home() {
       <button
         style={{
           marginTop: "30px",
-          padding: "12px 24px",
           backgroundColor: "#2563eb",
           color: "white",
           border: "none",
-          borderRadius: "8px",
+          borderRadius: "20px",
           cursor: "pointer",
         }}
       >

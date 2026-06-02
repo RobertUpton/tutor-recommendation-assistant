@@ -1,6 +1,29 @@
+import { useEffect, useState } from "react";
 import DashboardLayout from "../components/DashboardLayout";
 
 function Dashboard() {
+
+  const user = JSON.parse(
+    localStorage.getItem("user") || "{}"
+  );
+
+  const [stats, setStats] = useState({
+    upcomingSessions: 0,
+    savedTutors: 0,
+    completedSessions: 0,
+  });
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/dashboard")
+      .then((response) => response.json())
+      .then((data) => {
+        setStats(data);
+      })
+      .catch((error) => {
+        console.error("Dashboard Error:", error);
+      });
+  }, []);
+
   return (
 
     <DashboardLayout>
@@ -9,7 +32,7 @@ function Dashboard() {
       <div style={{ marginBottom: "30px" }}>
 
         <h1 style={{ margin: 0 }}>
-          Welcome back, User 
+          Welcome back, {user?.name || "User"}
         </h1>
 
         <p style={{ color: "#94a3b8" }}>
@@ -17,7 +40,6 @@ function Dashboard() {
         </p>
 
       </div>
-
 
       {/* Stats Cards */}
       <div
@@ -41,11 +63,10 @@ function Dashboard() {
             Upcoming Sessions
           </p>
 
-          <h1 style={{ margin: 0 }}>
-            2
-          </h1>
+          <h2 style={{ margin: 0 }}>
+            {stats.upcomingSessions}
+          </h2>
         </div>
-
 
         {/* Card 2 */}
         <div
@@ -60,11 +81,10 @@ function Dashboard() {
             Saved Tutors
           </p>
 
-          <h1 style={{ margin: 0 }}>
-            5
-          </h1>
+          <h2 style={{ margin: 0 }}>
+            {stats.savedTutors}
+          </h2>
         </div>
-
 
         {/* Card 3 */}
         <div
@@ -79,9 +99,9 @@ function Dashboard() {
             Completed Sessions
           </p>
 
-          <h1 style={{ margin: 0 }}>
-            14
-          </h1>
+          <h2 style={{ margin: 0 }}>
+            {stats.completedSessions}
+          </h2>
         </div>
 
       </div>

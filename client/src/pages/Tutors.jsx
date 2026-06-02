@@ -1,37 +1,72 @@
 import DashboardLayout from "../components/DashboardLayout";
+import { useEffect, useState } from "react";
 
 function Tutors() {
 
-  // Fake tutor data for now
-  const tutors = [
+  const [tutors, setTutors] = useState([]);
 
-    {
-      name: "Sarah Johnson",
-      subject: "Mathematics",
-      rating: "4.9",
-      experience: "5 years experience",
-      bio: "Helping students master algebra and calculus.",
-    },
+  useEffect(() => {
+    fetch("http://localhost:5000/api/tutors")
+      .then((response) => response.json())
+      .then((data) => {
+        setTutors(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching tutors:", error);
+      });
 
-    {
-      name: "David Lee",
-      subject: "Physics",
-      rating: "4.8",
-      experience: "4 years experience",
-      bio: "SAT and college physics specialist.",
-    },
-
-    {
-      name: "Emily Carter",
-      subject: "Programming",
-      rating: "5.0",
-      experience: "6 years experience",
-      bio: "Frontend and JavaScript tutor.",
-    },
-
-  ];
+  }, 
+  []);
 
 
+const handleBookTutor = async (tutorId) => {
+
+  const user = JSON.parse(
+    localStorage.getItem("user")
+  );
+
+  if (!user) {
+    alert("Please login first");
+    return;
+  }
+
+  try {
+
+    const response = await fetch(
+      "http://localhost:5000/api/bookings",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: user.id,
+          tutorId,
+          sessionDate: new Date(),
+          notes: "",
+        }),
+      }
+    );
+
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Session booked!");
+    } else {
+
+      alert(data.message);
+
+    }
+
+  } catch (error) {
+
+    console.error(error);
+    alert("Booking failed");
+
+  }
+
+};
   return (
 
     <DashboardLayout>
@@ -103,9 +138,12 @@ function Tutors() {
             </p>
 
 
-            {/* Rating */}
             <p>
-              ⭐ {tutor.rating}
+               ${tutor.price}/hour
+            </p>
+
+            <p style={{ color: "#22c55e" }}>
+              ● Available Now
             </p>
 
 
@@ -123,16 +161,10 @@ function Tutors() {
 
             {/* Button */}
             <button
-              style={{
-                width: "100%",
-                padding: "12px",
-                marginTop: "15px",
-                backgroundColor: "#2563eb",
-                color: "white",
-                border: "none",
-                borderRadius: "12px",
-                cursor: "pointer",
-                fontWeight: "bold",
+              onClick={() => handleBookTutor(tutor._id)}
+              style={{width: "100%", padding: "12px", marginTop: "15px",
+                backgroundColor: "#2563eb",color: "white", border: "none",borderRadius: "12px",
+                cursor: "pointer",fontWeight: "bold",
               }}
             >
               Book Session

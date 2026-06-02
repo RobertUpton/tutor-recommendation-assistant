@@ -1,36 +1,20 @@
+import { useEffect, useState } from "react";
 import DashboardLayout from "../components/DashboardLayout";
 
 function Bookings() {
 
-  // Fake booking data for now
-  const bookings = [
+ const [bookings, setBookings] = useState([]);
 
-    {
-      tutor: "Sarah Johnson",
-      subject: "Mathematics",
-      date: "March 12, 2026",
-      time: "4:00 PM",
-      status: "Upcoming",
-    },
-
-    {
-      tutor: "David Lee",
-      subject: "Physics",
-      date: "March 15, 2026",
-      time: "2:30 PM",
-      status: "Upcoming",
-    },
-
-    {
-      tutor: "Emily Carter",
-      subject: "Programming",
-      date: "March 2, 2026",
-      time: "6:00 PM",
-      status: "Completed",
-    },
-
-  ];
-
+useEffect(() => {
+  fetch("http://localhost:5000/api/bookings")
+    .then((response) => response.json())
+    .then((data) => {
+      setBookings(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}, []);
 
   return (
 
@@ -93,25 +77,27 @@ function Bookings() {
 
             {/* Tutor Name */}
             <h2 style={{ marginTop: 0 }}>
-              {booking.tutor}
+              {booking.tutorId?.name}
             </h2>
 
 
             {/* Subject */}
             <p style={{ color: "#60a5fa" }}>
-              {booking.subject}
+              {booking.tutorId?.subject}
             </p>
 
 
             {/* Date */}
             <p>
-              📅 {booking.date}
+              📅 {new Date(
+                booking.sessionDate
+              ).toLocaleDateString()}
             </p>
 
 
             {/* Time */}
             <p>
-              ⏰ {booking.time}
+              ⏰  Status:  {booking.status}
             </p>
 
 
