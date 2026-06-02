@@ -5,12 +5,27 @@ function DashboardLayout({ children }) {
 
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/");
-  };
+ const handleLogout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
 
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  navigate("/");
+};
+
+const user =
+  JSON.parse(
+    localStorage.getItem("user")
+  ) || {};
+
+  const userName =
+  user.name || "User";
+
+const userInitial =
+  userName.charAt(0).toUpperCase();
+
+const [sidebarOpen, setSidebarOpen] =
+  useState(true);
+
 
   return (
 
@@ -42,33 +57,59 @@ function DashboardLayout({ children }) {
 
 
         {/* Right side */}
-        <div style={{ display: "flex", alignItems: "center", gap: "22px" }}>
+        <div
+          style={{ display: "flex", alignItems: "center",gap: "24px",}} >
 
           {/* Notification */}
-          <div style={{ fontSize: "20px", cursor: "pointer" }}>
+          <div
+            style={{position: "relative",cursor: "pointer",fontSize: "22px",}}>
             🔔
+
+            <div
+              style={{ position: "absolute",top: "-6px",
+                right: "-6px",width: "18px", height: "18px",
+                borderRadius: "50%", backgroundColor: "#ef4444",
+                color: "white",fontSize: "10px",display: "flex",
+                justifyContent: "center",alignItems: "center",fontWeight: "bold",}}>
+              3
+            </div>
           </div>
 
-          {/* Profile */}
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          {/* User */}
+          <div
+            style={{ display: "flex",alignItems: "center",
+              
+            }}
+          >
 
-            {/* Avatar */}
-            <div style={{ width: "38px", height: "38px", borderRadius: "50%",
-            backgroundColor: "#2563eb", display: "flex", justifyContent: "center",
-            alignItems: "center", fontWeight: "bold" }}>
-              U
+            <div
+              style={{width: "42px", height: "42px", borderRadius: "50%",
+                background:
+                  "linear-gradient(135deg,#60a5fa,#2563eb)",display: "flex",
+                justifyContent: "center",alignItems: "center",fontWeight: "bold",fontSize: "16px",}}>
+              {userInitial}
             </div>
 
-            {/* Username */}
-            <p style={{ margin: 0 }}>
-              User
-            </p>
+            <div>
+              <p
+                style={{
+                  margin: 0,
+                  fontWeight: "bold",
+                }}
+              >
+                {userName}
+              </p>
+
+              <p
+                style={{margin: 0,color: "#94a3b8",fontSize: "12px", }}>
+                Student
+              </p>
+            </div>
 
           </div>
 
-        </div>
-
-      </div>
+            </div>
+            </div>
 
 
       {/* Dashboard Body */}

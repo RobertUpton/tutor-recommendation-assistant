@@ -12,6 +12,7 @@ import Settings from "./pages/Settings";
 import Bookings from "./pages/Bookings";
 
 
+
 // This component handles routes + navbar logic
 function AppContent() {
 
@@ -26,15 +27,16 @@ function AppContent() {
       {location.pathname === "/"  && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element=         {<Home />}      />
+        <Route path="/login" element=    {<Login />}     />
         <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Register" element={<Register />} />
-        <Route path="/Tutors" element={<Tutors />} />
-        <Route path="/messages" element={<Messages />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/bookings" element={<Bookings />} />
+        <Route path="/Register" element= {<Register />}  />
+        <Route path="/Tutors" element=   {<Tutors />}    />
+        <Route path="/messages" element= {<Messages />}  />
+        <Route path="/profile" element=  {<Profile />}   />
+        <Route path="/settings" element= {<Settings />}  />
+        <Route path="/bookings" element= {<Bookings />}  />
+        
       </Routes>
 
     </>

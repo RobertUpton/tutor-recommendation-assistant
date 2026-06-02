@@ -59,6 +59,11 @@ const handleRegister = async (e) => {
       data.token
       );
 
+      localStorage.setItem(
+      "user",
+      JSON.stringify(data.user)
+      );
+
       navigate("/Dashboard");
 
   } catch (error) {

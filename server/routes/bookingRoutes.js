@@ -4,13 +4,16 @@ const router = express.Router();
 const {
   getBookings,
   createBooking,
+  getMyBookings,
 } = require("../controllers/bookingController");
 
-
-// GET all bookings
 router.get("/", getBookings);
 
-// CREATE booking
+router.get(
+  "/user/:userId",
+  getMyBookings
+);
+
 router.post("/", createBooking);
 
 module.exports = router;

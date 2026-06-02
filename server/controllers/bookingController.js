@@ -3,19 +3,7 @@ const Booking = require("../models/Bookings");
 const createBooking = async (req, res) => {
   try {
 
-    const {
-      userId,
-      tutorId,
-      sessionDate,
-      notes,
-    } = req.body;
-
-    const booking = await Booking.create({
-      userId,
-      tutorId,
-      sessionDate,
-      notes,
-    });
+    const booking = await Booking.create(req.body);
 
     res.status(201).json(booking);
 
@@ -46,7 +34,29 @@ const getBookings = async (req, res) => {
   }
 };
 
+const getMyBookings = async (req, res) => {
+  try {
+
+    const userId = req.params.userId;
+
+    const bookings = await Booking.find({
+      userId,
+    })
+      .populate("tutorId");
+
+    res.json(bookings);
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message,
+    });
+
+  }
+};
+
 module.exports = {
-  getBookings,
   createBooking,
+  getBookings,
+  getMyBookings,
 };
