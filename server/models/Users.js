@@ -28,7 +28,7 @@ const UserSchema = new mongoose.Schema(
     default: "",
   },
 
-  educationLevel: {
+  education: {
     type: String,
     default: "",
   },
@@ -43,11 +43,19 @@ const UserSchema = new mongoose.Schema(
     default: "",
   },
 
+  notifications: {
+    type: Boolean,
+    default: true,
+  },
+
+  darkMode: {
+    type: Boolean,
+    default: true,
+  },
 },
 {
   timestamps: true,
-}
-);
+});
 
 module.exports = mongoose.model(
   "User",

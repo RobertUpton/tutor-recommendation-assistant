@@ -1,8 +1,11 @@
 import DashboardLayout from "../components/DashboardLayout";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 
 function Tutors() {
-
+const navigate = useNavigate();
   const [tutors, setTutors] = useState([]);
 
   useEffect(() => {
@@ -161,7 +164,7 @@ const handleBookTutor = async (tutorId) => {
 
             {/* Button */}
             <button
-                onClick={() => handleBookTutor(tutor._id)}
+                onClick={() =>navigate(`/book/${tutor._id}`)}
               style={{width: "100%", padding: "12px", marginTop: "15px",
                 backgroundColor: "#2563eb",color: "white", border: "none",borderRadius: "12px",
                 cursor: "pointer",fontWeight: "bold",

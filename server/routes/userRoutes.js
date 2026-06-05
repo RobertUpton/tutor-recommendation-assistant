@@ -12,7 +12,16 @@ router.get("/:id", getProfile);
 
 router.put("/:id", updateProfile);
 
-module.exports = router;
+
+router.get(
+  "/:id",
+  getProfile
+);
+
+router.put(
+  "/profile/:id",
+  updateProfile
+);
 
 router.put(
   "/settings/:id",
@@ -23,3 +32,5 @@ router.delete(
   "/:id",
   deleteAccount
 );
+
+module.exports = router;

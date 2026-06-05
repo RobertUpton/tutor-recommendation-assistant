@@ -7,4 +7,9 @@ const {
 
 router.get("/", getTutors);
 
+router.get(
+  "/:id",
+  getTutorById
+);
+
 module.exports = router;

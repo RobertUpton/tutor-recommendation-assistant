@@ -4,7 +4,21 @@ import DashboardLayout from "../components/DashboardLayout";
 function Bookings() {
 
   const [bookings, setBookings] =
-    useState([]);
+    useEffect(() => {
+
+  fetch(
+    "http://localhost:5000/api/bookings"
+  )
+    .then((response) =>
+      response.json()
+    )
+    .then((data) => {
+
+      setBookings(data);
+
+    });
+
+}, []);
 
   useEffect(() => {
 

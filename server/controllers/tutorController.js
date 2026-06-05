@@ -15,3 +15,13 @@ const getTutors = async (req, res) => {
 module.exports = {
   getTutors,
 };
+const getTutorById =
+  async (req, res) => {
+
+    const tutor =
+      await Tutor.findById(
+        req.params.id
+      );
+
+    res.json(tutor);
+};

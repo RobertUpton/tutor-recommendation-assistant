@@ -10,6 +10,7 @@ import Messages from "./pages/Messages";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import Bookings from "./pages/Bookings";
+import BookTutor from "./pages/BookTutor";
 
 
 
@@ -36,7 +37,7 @@ function AppContent() {
         <Route path="/profile" element=  {<Profile />}   />
         <Route path="/settings" element= {<Settings />}  />
         <Route path="/bookings" element= {<Bookings />}  />
-        
+        <Route path="/book/:id" element={<BookTutor />}  />
       </Routes>
 
     </>

@@ -4,16 +4,18 @@ const router = express.Router();
 const {
   getBookings,
   createBooking,
-  getMyBookings,
-} = require("../controllers/bookingController");
+  deleteBooking,
+} = require(
+  "../controllers/bookingController"
+);
 
 router.get("/", getBookings);
 
-router.get(
-  "/user/:userId",
-  getMyBookings
-);
-
 router.post("/", createBooking);
+
+router.delete(
+  "/:id",
+  deleteBooking
+);
 
 module.exports = router;
